@@ -1,0 +1,71 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVCD2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MVCD2.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark text-white bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CompanySD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">EMPLOYEES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SUPERVISORS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">DEPARTMENTS </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">PROJECTS </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class=" d-flex m-5">
+        <div class="sidebar w-20 bg-dark p-5 rounded-1 text-white">
+            <h5>PEPOLE</h5>
+            <ul>
+                <li>Professionalism</li>
+                <li>Elation</li>
+                <li>Openness</li>
+                <li>Passion</li>
+                <li>Loyalty</li>
+                <li>Extra Mile</li>
+            </ul>
+        </div>
+
+        <div class="content w-75 m-auto">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center border-top footer text-white bg-dark p-3 ">
+        <p>&copy; 2023 - MVC</p>
+    </footer>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>

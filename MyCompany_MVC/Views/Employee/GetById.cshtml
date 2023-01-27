@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Employee
+
+<h1>Employee Data:</h1>
+<hr/>
+<h4>Name: @(Model.Fname + " " + Model.Lname)</h4>
+<h4>Sex:  @Model.Sex</h4>
+<h4>Address:  @Model.Address</h4>
+<h4>Salary:  @Model.Salary</h4>
+<h4>Birth Date:  @Model.BirthDate</h4>
+@{
+    if (Model.Supervisor != null)
+    {
+        <h4>
+            Supervisor: @(Model.Supervisor.Fname + " " + Model.Supervisor.Lname)
+        </h4>
+    }
+    else
+    {
+        <h4>
+            Has No Supervisor
+        </h4>
+    }
+}
+
+<button class="btn btn-primary text-white  my-3 me-4"><h6 class="text-white"><a class="text-white" href="/Employee/Index">  Employees</a></h6> </button>
+<button class="btn btn-primary text-white  my-3"><h6 class="text-white"><a class="text-white" href="/Dependent/GetAllDependent">Show All Dependets</a></h6> </button>
+

@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Int32
+
+<form action="/Dependent/AddToDB">
+
+    <label>Name</label>
+    <input class ="form-control" id="Name" name="Name" type="text" />
+
+    <label>Sex</label>
+    <input class="form-control" id="Sex" name="Sex" type="text" />
+
+    <label>Birth Date</label>
+    <input class="form-control" id="BirthDate" name="BirthDate" type="datetime" />
+
+    <label>Relationship</label>
+    <input class="form-control" id="Relationship" name="Relationship" type="text" />
+
+   
+    <input class="btn btn-primary mt-3" type="submit" value="Add" />
+</form>

@@ -1,0 +1,14 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Dependent>
+
+@foreach (var dependent in Model)
+{
+        <h5>Name: @dependent.Name</h5>
+        <h5>Sex: @dependent.Sex</h5>
+        <h5>Relation: @dependent.Relationship</h5>
+        <hr/>
+}
