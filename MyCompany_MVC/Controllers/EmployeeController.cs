@@ -22,7 +22,7 @@ namespace MyCompany_MVC.Controllers
         {
 
 
-            Employee? employee = DB.Employees.Include(s => s.Supervisor).Where(e => e.SSN == id).SingleOrDefault();
+            Employee? employee = DB.Employees.Include(s => s.Supervisor).Include(e => e.DepartmentManege).Include(e => e.DepartmentManege).Where(e => e.SSN == id).SingleOrDefault();
             if (employee == null)
                 return View("Error");
             else

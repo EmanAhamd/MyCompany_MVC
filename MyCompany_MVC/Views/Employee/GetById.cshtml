@@ -28,5 +28,10 @@
 }
 
 <button class="btn btn-primary text-white  my-3 me-4"><h6 class="text-white"><a class="text-white" href="/Employee/Index">  Employees</a></h6> </button>
-<button class="btn btn-primary text-white  my-3"><h6 class="text-white"><a class="text-white" href="/Dependent/GetAllDependent">Show All Dependets</a></h6> </button>
+<button class="btn btn-primary text-white  my-3 me-4"><h6 class="text-white"><a class="text-white" href="/Dependent/GetAllDependent">Show All Dependets</a></h6> </button>
+@if (Model.DepartmentManege != null)
+{
+    <button class="btn btn-primary text-white  my-3 me-4"><h6 class="text-white"><a class="text-white" href="/Departmen/GetDepartmentManger/@Model.SSN">Department</a></h6> </button>
+
+}
 
