@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int index = 1;
+  
+}
+@model Department
+
+
+
+
+<h1>Department Data:</h1>
+<hr/>
+<br />
+<h4>Name: @Model.Name</h4>
+
+<h4>Locations</h4>
+
+@foreach (var deptLocation in Model.DepartmentLocations)
+{
+    <ol>
+        <li>@deptLocation.Location</li>
+    </ol>
+     
+
+}
+
+<h4>Manger: @(Model.employeeManege.Fname + " " + Model.employeeManege.Lname)</h4>
+
+
+<h4>Departments Projects:</h4>
+
+<table class="table w-75 mx-5">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model.Projects)
+        {
+
+                <tr>
+                    <td>@(index++)</td>
+                    <td> @project.Name</td>
+                    <td>@project.Location</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+
+@Html.ActionLink("Return To All Departments","Index","Departmen");
