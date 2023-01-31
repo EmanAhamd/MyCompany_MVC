@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyCompany_MVC.Models;
 
@@ -52,6 +53,42 @@ namespace MyCompany_MVC.Controllers
             ViewBag.mgrSSN = (int)HttpContext.Session.GetInt32("SSN");
 
             return View(worksOnProject1);
+        }
+
+
+        public IActionResult EditEmployeeHour()
+        {
+            List<Employee> employees = DB.Employees.ToList();
+            ViewBag.employees = new SelectList(employees, "SSN", "Fname");
+            return View();
+        }
+
+        public IActionResult EditEmployeeHour_emp(int id)
+        {
+            List<Project>? projects = DB.WorksOnProjects.Include(wop => wop.Project).Where(wop => wop.EmpSSN == id).Select(wop => wop.Project).ToList();
+            ViewBag.projects = new SelectList(projects, "Number", "Name");
+            if (projects.Count > 0)
+            {
+                WorksOnProject worksOnProject = new WorksOnProject()
+                {
+                    Hours = DB.WorksOnProjects.SingleOrDefault(wop => (wop.EmpSSN == id) && (wop.projNum == projects[0].Number)).Hours
+                };
+                return PartialView("_ProjectsList", worksOnProject);
+            }
+            return PartialView("_ProjectsList");
+        }
+
+        public IActionResult EditEmployeeHour_emp_proj(int id, int projNum)
+        {
+            WorksOnProject? worksOnProject = DB.WorksOnProjects.SingleOrDefault(wop => wop.EmpSSN == id && wop.projNum == projNum);
+            return PartialView("_hour", worksOnProject);
+        }
+
+        public IActionResult EditEmployeeHourDb(WorksOnProject worksOnProject)
+        {
+            DB.WorksOnProjects.Update(worksOnProject);
+            DB.SaveChanges();
+            return View();
         }
     }
 }
